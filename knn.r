@@ -1,3 +1,7 @@
+"
+This code tests the knn algoritm for classification over the dataset iris.
+"
+
 # Import package that contains knn
 library(class)
 
