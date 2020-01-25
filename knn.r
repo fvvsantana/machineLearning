@@ -1,7 +1,6 @@
 # Import package that contains knn
 library(class)
 
-
 # Normalize the feature columns of a dataset
 normalizeDataset <- function(dataset){
     # Normalize features
@@ -37,6 +36,11 @@ accuracy <- function(predCl, trueCl){
     )
 }
 
+# Plot dataset
+plotDataset <- function(dataset){
+    plot(dataset[,1:ncol(dataset)-1], col = dataset[, ncol(dataset)])
+}
+
 main <- function(){
     # Load data
     dataset = iris
@@ -58,6 +62,8 @@ main <- function(){
     # Accuracy
     accuracyRate = accuracy(result, testTrueClass)
     print(accuracyRate)
+    # Plot dataset
+    plotDataset(dataset$training)
 
 }
 
