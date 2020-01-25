@@ -32,7 +32,7 @@ prepareDataset <- function(dataset){
 }
 
 # Calculate accuracy from two arrays
-accuracy <- function(predCl, trueCl){
+predAccuracy <- function(predCl, trueCl){
     return(
         (
             sum(predCl == trueCl, na.rm = TRUE) + sum(is.na(predCl) & is.na(trueCl))
@@ -64,7 +64,7 @@ main <- function(){
     confusionMatrix = table(result, testTrueClass)
     print(confusionMatrix)
     # Accuracy
-    accuracyRate = accuracy(result, testTrueClass)
+    accuracyRate = predAccuracy(result, testTrueClass)
     print(accuracyRate)
     # Plot dataset
     plotDataset(dataset$training)
