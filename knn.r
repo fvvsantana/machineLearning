@@ -1,5 +1,6 @@
-# Tutorial:
-# https://towardsdatascience.com/k-nearest-neighbors-algorithm-with-examples-in-r-simply-explained-knn-1f2c88da405c
+# Import package that contains knn
+library(class)
+
 
 # Normalize the feature columns of a dataset
 normalizeDataset <- function(dataset){
@@ -27,12 +28,37 @@ prepareDataset <- function(dataset){
     return(ret)
 }
 
+# Calculate accuracy from two arrays
+accuracy <- function(predCl, trueCl){
+    return(
+        (
+            sum(predCl == trueCl, na.rm = TRUE) + sum(is.na(predCl) & is.na(trueCl))
+        ) / length(predCl)
+    )
+}
+
 main <- function(){
     # Load data
-    dataset = head(iris)
+    dataset = iris
     # Normalize and partition dataset
     dataset = prepareDataset(dataset)
-    print(dataset)
+
+    # Prepare sets to pass to classifier
+    trainingSet = dataset$training[, 1:(ncol(dataset$training)-1)]
+    testSet = dataset$test[, 1:(ncol(dataset$test)-1)]
+    trainingTrueClass= dataset$training[,ncol(dataset$training)]
+    testTrueClass = dataset$test[,ncol(dataset$test)]
+
+    # Classify
+    result = knn(trainingSet, testSet, cl = trainingTrueClass, k = 1)
+
+    # Confusion matrix
+    confusionMatrix = table(result, testTrueClass)
+    print(confusionMatrix)
+    # Accuracy
+    accuracyRate = accuracy(result, testTrueClass)
+    print(accuracyRate)
+
 }
 
 main()
