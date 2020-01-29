@@ -62,10 +62,11 @@ main <- function(){
 
     # Confusion matrix
     confusionMatrix = table(result, testTrueClass)
+    print('Confusion matrix:')
     print(confusionMatrix)
     # Accuracy
     accuracyRate = predAccuracy(result, testTrueClass)
-    print(accuracyRate)
+    print(paste('Accuracy rate:', accuracyRate))
     # Plot dataset
     plotDataset(dataset$training)
 
