@@ -1,3 +1,6 @@
+"
+This file is just an example of how to create folds for k-fold cross validation using caret.
+"
 # Tutorials:
 # https://stackoverflow.com/questions/22909197/creating-folds-for-k-fold-cv-in-r-using-caret
 # http://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/
