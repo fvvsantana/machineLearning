@@ -25,7 +25,7 @@ Then load the source file you want to, for example:
     source('knn.r')
 ```
 Loads the script [knn.r](knn.r) and shows up a beautiful chart of the dataset iris, where we can easily identify the clusters of classes by color.
-To run every other R script change 'knn.r' by the relative path of the script.
+To run every other R script, change 'knn.r' by the relative path of the script.
 
 ## Tech stack
 * R (Caret)
